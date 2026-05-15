@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E8F5E9">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Payment"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="#1B5E20"
+            android:layout_gravity="center"
+            android:layout_marginBottom="30dp"/>
+
+        <EditText
+            android:id="@+id/amountEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Amount"
+            android:inputType="number"/>
+
+        <RadioGroup
+            android:id="@+id/paymentGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <RadioButton
+                android:id="@+id/gpay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Google Pay"/>
+
+            <RadioButton
+                android:id="@+id/phonepe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PhonePe"/>
+
+            <RadioButton
+                android:id="@+id/paytm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Paytm"/>
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/payBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PAY NOW"
+            android:backgroundTint="#388E3C"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="25dp"/>
+
+        <TextView
+            android:id="@+id/paymentResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#1B5E20"
+            android:layout_marginTop="25dp"/>
+
+    </LinearLayout>
+
+</ScrollView>

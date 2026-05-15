@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="#F5E6CC">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tourist Review"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#4E342E"
+        android:paddingBottom="25dp"/>
+
+    <EditText
+        android:id="@+id/nameReview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Your Name"/>
+
+    <EditText
+        android:id="@+id/reviewText"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:hint="Write Your Experience"
+        android:gravity="top"
+        android:layout_marginTop="15dp"/>
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:stepSize="1"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:id="@+id/submitBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit Review"
+        android:layout_marginTop="25dp"/>
+
+    <TextView
+        android:id="@+id/outputReview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#4E342E"
+        android:layout_marginTop="25dp"/>
+
+</LinearLayout>
