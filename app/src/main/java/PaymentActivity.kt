@@ -3,6 +3,8 @@ package com.example.gramavasathi
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
+import android.net.Uri
 
 class PaymentActivity : AppCompatActivity() {
 
@@ -54,14 +56,17 @@ class PaymentActivity : AppCompatActivity() {
                 val selectedRadio =
                     findViewById<RadioButton>(selectedId)
 
-                paymentResult.text =
-                    "✅ Payment of ₹$amount successful using ${selectedRadio.text}"
+                val uri =
+                    Uri.parse(
+                        "upi://pay?pa=test@upi&pn=GramaVasathi&tn=FarmStayBooking&am=$amount&cu=INR"
+                    )
 
-                Toast.makeText(
-                    this,
-                    "Payment Successful",
-                    Toast.LENGTH_SHORT
-                ).show()
+                val intent = Intent(Intent.ACTION_VIEW, uri)
+
+                val chooser =
+                    Intent.createChooser(intent, "Pay with")
+
+                startActivity(chooser)
             }
         }
     }

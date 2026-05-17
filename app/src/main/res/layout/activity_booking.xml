@@ -25,13 +25,34 @@
         android:hint="Enter Your Name"/>
 
     <EditText
-        android:id="@+id/date"
+        android:id="@+id/checkIndate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Select Booking Date"
+        android:hint="Select Check-In Date"
+        android:cursorVisible="false"
+
         android:layout_marginTop="15dp"
         android:focusable="false"
         android:clickable="true"/>
+
+    <EditText
+        android:id="@+id/checkOutDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Select Check-Out Date"
+        android:clickable="true"
+        android:cursorVisible="false"
+
+        android:focusable="false"
+        android:layout_marginTop="15dp"/>
+
+    <EditText
+        android:id="@+id/guests"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Number of Guests"
+        android:inputType="number"
+        android:layout_marginTop="15dp"/>
 
     <Button
         android:id="@+id/confirmBtn"

@@ -4,13 +4,22 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
+
 
 class LoginActivity : AppCompatActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
 
+    private lateinit var auth: FirebaseAuth
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+
+        super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        auth = FirebaseAuth.getInstance()
 
         val loginInput =
             findViewById<EditText>(R.id.loginInput)
@@ -18,13 +27,58 @@ class LoginActivity : AppCompatActivity() {
         val passwordInput =
             findViewById<EditText>(R.id.passwordInput)
 
+
+        var isPasswordVisible = false
+
+        passwordInput.setOnClickListener {
+            // keep normal click working
+        }
+
+
+        passwordInput.setOnTouchListener { _, event ->
+
+            val drawableRight = 2
+
+            if (event.action == android.view.MotionEvent.ACTION_UP) {
+
+                if (event.rawX >= (passwordInput.right -
+                            passwordInput.compoundDrawables[drawableRight].bounds.width())) {
+
+                    if (isPasswordVisible) {
+
+                        passwordInput.transformationMethod =
+                            PasswordTransformationMethod.getInstance()
+
+                        isPasswordVisible = false
+
+                    } else {
+
+                        passwordInput.transformationMethod =
+                            HideReturnsTransformationMethod.getInstance()
+
+                        isPasswordVisible = true
+                    }
+
+                    passwordInput.setSelection(passwordInput.text.length)
+
+                    return@setOnTouchListener true
+                }
+            }
+
+            false
+        }
         val loginBtn =
             findViewById<Button>(R.id.loginBtn)
 
         val registerText =
             findViewById<TextView>(R.id.registerText)
 
-        // Register page open
+        val forgotPassword =
+            findViewById<TextView>(R.id.forgotPassword)
+
+
+
+        // Open Register Page
         registerText.setOnClickListener {
 
             startActivity(
@@ -32,51 +86,92 @@ class LoginActivity : AppCompatActivity() {
             )
         }
 
-        // Login validation
+        forgotPassword.setOnClickListener {
+
+            val email =
+                loginInput.text.toString().trim()
+
+            if (email.isEmpty()) {
+
+                Toast.makeText(
+                    this,
+                    "Enter your Gmail first",
+                    Toast.LENGTH_SHORT
+                ).show()
+
+            } else {
+
+                auth.sendPasswordResetEmail(email)
+                    .addOnCompleteListener {
+
+                        if (it.isSuccessful) {
+
+                            Toast.makeText(
+                                this,
+                                "Reset email sent",
+                                Toast.LENGTH_SHORT
+                            ).show()
+
+                        } else {
+
+                            Toast.makeText(
+                                this,
+                                "Failed to send reset email",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+            }
+        }
+
+        // Firebase Login
         loginBtn.setOnClickListener {
 
-            val input =
-                loginInput.text.toString()
+            val email =
+                loginInput.text.toString().trim()
 
             val password =
-                passwordInput.text.toString()
+                passwordInput.text.toString().trim()
 
-            // Gmail login
-            if (input.contains("@gmail.com")) {
-
-                Toast.makeText(
-                    this,
-                    "Login Successful",
-                    Toast.LENGTH_SHORT
-                ).show()
-
-                startActivity(
-                    Intent(this, HomeActivity::class.java)
-                )
-            }
-
-            // Phone login
-            else if (input.length == 10) {
+            if (email.isEmpty() || password.isEmpty()) {
 
                 Toast.makeText(
                     this,
-                    "Phone Login Successful",
+                    "Enter Email and Password",
                     Toast.LENGTH_SHORT
                 ).show()
 
-                startActivity(
-                    Intent(this, HomeActivity::class.java)
-                )
-            }
+            } else {
 
-            else {
+                auth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this) { task ->
 
-                Toast.makeText(
-                    this,
-                    "Enter valid Gmail or Phone Number",
-                    Toast.LENGTH_SHORT
-                ).show()
+                        if (task.isSuccessful) {
+
+                            Toast.makeText(
+                                this,
+                                "Login Successful",
+                                Toast.LENGTH_SHORT
+                            ).show()
+
+                            startActivity(
+                                Intent(this, HomeActivity::class.java)
+                            )
+
+                            finish()
+
+                        } else {
+
+                            Toast.makeText(
+                                this,
+                                "Login Failed: ${task.exception?.message}",
+                                Toast.LENGTH_LONG
+                            ).show()
+                        }
+                    }
             }
         }
     }
+
+
 }

@@ -47,7 +47,21 @@
         android:layout_height="wrap_content"
         android:hint="Enter Password"
         android:inputType="textPassword"
+        android:drawableEnd="@android:drawable/ic_menu_view"
+        android:drawablePadding="12dp"
+        android:padding="12dp"
+        android:textSize="18sp"
+        android:backgroundTint="#7CE7E7"
         android:layout_marginTop="15dp"/>
+
+    <TextView
+        android:id="@+id/forgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password?"
+        android:textColor="#1976D2"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"/>
 
     <Button
         android:id="@+id/loginBtn"
