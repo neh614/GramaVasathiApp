@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.widget.EditText
 import android.widget.TextView
 
+
 class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -89,5 +90,8 @@ class HomeActivity : AppCompatActivity() {
                 Intent(this, ProfileActivity::class.java)
             )
         }
+
+        val farmActivitiesBtn =
+            findViewById<Button>(R.id.farmActivitiesBtn)
     }
 }

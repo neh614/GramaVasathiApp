@@ -30,7 +30,25 @@ class ChecklistActivity : AppCompatActivity() {
             if (toiletCheck.isChecked) score += 25
             if (foodCheck.isChecked) score += 25
 
-            resultText.text = "Host Readiness Score: $score%"
+            if (score >= 75) {
+
+                resultText.text =
+                    "✅ Host Readiness Score: $score%\nExcellent Hospitality Setup"
+
+            }
+
+            else if (score >= 50) {
+
+                resultText.text =
+                    "⚠️ Host Readiness Score: $score%\nNeeds Minor Improvements"
+
+            }
+
+            else {
+
+                resultText.text =
+                    "❌ Host Readiness Score: $score%\nNeeds Major Improvements"
+            }
         }
     }
 }

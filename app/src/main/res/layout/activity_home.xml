@@ -98,6 +98,13 @@
         android:textColor="#FFFFFF"
         android:layout_marginTop="15dp"/>
 
+    <Button
+        android:id="@+id/farmActivitiesBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Farm Experience Activities"
+        android:layout_marginTop="15dp"/>
+
 
 
 
