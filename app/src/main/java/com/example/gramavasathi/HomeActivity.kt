@@ -17,13 +17,7 @@ class HomeActivity : AppCompatActivity() {
         val searchBox = findViewById<EditText>(R.id.searchBox)
         val searchResult = findViewById<TextView>(R.id.searchResult)
 
-        val cowBtn = findViewById<Button>(R.id.cowBtn)
 
-        cowBtn.setOnClickListener {
-
-            startActivity(Intent(this, FarmStayActivity::class.java))
-
-        }
         val checklistBtn = findViewById<Button>(R.id.checklistBtn)
 
         checklistBtn.setOnClickListener {
@@ -98,6 +92,13 @@ class HomeActivity : AppCompatActivity() {
             startActivity(
                 Intent(this, FarmActivitiesActivity::class.java)
             )
+        }
+        val bookingBtn = findViewById<Button>(R.id.cowBtn)
+
+        bookingBtn.setOnClickListener {
+
+            val intent = Intent(this, BookingActivity::class.java)
+            startActivity(intent)
         }
     }
 }
