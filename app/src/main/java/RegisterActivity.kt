@@ -49,7 +49,7 @@ class RegisterActivity : AppCompatActivity() {
                 confirmPasswordEdit.text.toString()
 
             // Gmail validation
-            else if (!email.endsWith("@gmail.com")) {
+            if (!email.endsWith("@gmail.com")) {
 
                 Toast.makeText(
                     this,
@@ -86,7 +86,7 @@ class RegisterActivity : AppCompatActivity() {
                             val user = hashMapOf(
 
                                 "name" to name,
-                                "phone" to phone,
+
                                 "email" to email
                             )
 
