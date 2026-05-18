@@ -10,11 +10,11 @@ class SliderAdapter(
     private val imageList: List<Int>
 ) : RecyclerView.Adapter<SliderAdapter.SliderViewHolder>() {
 
-    class SliderViewHolder(view: View)
-        : RecyclerView.ViewHolder(view) {
+    class SliderViewHolder(itemView: View) :
+        RecyclerView.ViewHolder(itemView) {
 
-        val image =
-            view.findViewById<ImageView>(R.id.slideImage)
+        val imageView: ImageView =
+            itemView.findViewById(R.id.sliderImage)
     }
 
     override fun onCreateViewHolder(
@@ -33,7 +33,9 @@ class SliderAdapter(
         position: Int
     ) {
 
-        holder.image.setImageResource(imageList[position])
+        holder.imageView.setImageResource(
+            imageList[position]
+        )
     }
 
     override fun getItemCount(): Int {

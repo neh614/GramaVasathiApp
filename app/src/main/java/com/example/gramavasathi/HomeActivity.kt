@@ -93,5 +93,11 @@ class HomeActivity : AppCompatActivity() {
 
         val farmActivitiesBtn =
             findViewById<Button>(R.id.farmActivitiesBtn)
+        farmActivitiesBtn.setOnClickListener {
+
+            startActivity(
+                Intent(this, FarmActivitiesActivity::class.java)
+            )
+        }
     }
 }
