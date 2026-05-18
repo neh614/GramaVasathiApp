@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import java.util.*
+import com.google.firebase.firestore.FirebaseFirestore
+
 
 class BookingActivity : AppCompatActivity() {
 
@@ -25,9 +27,7 @@ class BookingActivity : AppCompatActivity() {
 
         val guests =
             findViewById<EditText>(R.id.guests)
-
-        val confirmBtn =
-            findViewById<Button>(R.id.confirmBtn)
+        
 
         val result =
             findViewById<TextView>(R.id.result)
@@ -42,19 +42,39 @@ class BookingActivity : AppCompatActivity() {
             showDatePicker(checkOut)
         }
 
+        val confirmBtn = findViewById<Button>(R.id.confirmBtn)
+
         confirmBtn.setOnClickListener {
 
-            val userName = name.text.toString()
 
-            val inDate = checkIn.text.toString()
+            val bookingData = hashMapOf(
 
-            val outDate = checkOut.text.toString()
+                "name" to name.text.toString(),
+                "checkIn" to checkIn.text.toString(),
+                "checkOut" to checkOut.text.toString(),
+                "guests" to guests.text.toString()
 
-            val guestCount = guests.text.toString()
+            )
 
-            result.text =
-                "Booking Confirmed for $userName\nGuests: $guestCount"
+            FirebaseFirestore.getInstance()
+                .collection("Bookings")
+                .add(bookingData)
+
+                .addOnSuccessListener {
+
+                    result.text = "Booking Saved Successfully"
+
+                }
+
+                .addOnFailureListener {
+
+                    result.text = "Booking Failed"
+
+                }
+
+
         }
+
     }
 
     private fun showDatePicker(editText: EditText) {
