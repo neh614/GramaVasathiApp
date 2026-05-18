@@ -31,6 +31,20 @@ class HomeActivity : AppCompatActivity() {
 
             startActivity(Intent(this, ReviewActivity::class.java))
 
+            val culturalBtn =
+                findViewById<Button>(R.id.culturalBtn)
+
+            culturalBtn.setOnClickListener {
+
+
+                startActivity(
+                    Intent(this, CulturalGuideActivity::class.java)
+                )
+
+
+            }
+
+
         }
         searchBox.setOnEditorActionListener { _, _, _ ->
 

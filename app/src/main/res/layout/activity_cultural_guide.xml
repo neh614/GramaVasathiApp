@@ -1,60 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-    <LinearLayout
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp"
-        android:paddingTop="80dp"
+        android:layout_height="match_parent"
         android:background="#F5E6CC">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Village Cultural Guide"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            android:textColor="#4E342E"/>
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="🙏 Greet locals respectfully with a smile."
-            android:textSize="18sp"
-            android:layout_marginTop="25dp"/>
+            android:orientation="vertical"
+            android:padding="20dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="👕 Wear comfortable and modest clothes."
-            android:textSize="18sp"
-            android:layout_marginTop="15dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cultural Guide"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                android:textColor="#4E342E"
+                android:paddingBottom="20dp"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="🥘 Respect local food traditions."
-            android:textSize="18sp"
-            android:layout_marginTop="15dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🙏 Greeting Style:\nWelcome guests politely with a smile."
+                android:textSize="18sp"
+                android:padding="10dp"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="🌾 Participate in farming activities politely."
-            android:textSize="18sp"
-            android:layout_marginTop="15dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="👕 Traditional Dress:\nWear simple traditional village clothes."
+                android:textSize="18sp"
+                android:padding="10dp"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="📸 Ask permission before taking photos."
-            android:textSize="18sp"
-            android:layout_marginTop="15dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🍛 Food Culture:\nServe healthy organic village food."
+                android:textSize="18sp"
+                android:padding="10dp"/>
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🌿 Village Etiquette:\nRespect nature, locals and village traditions."
+                android:textSize="18sp"
+                android:padding="10dp"/>
 
-</ScrollView>
+        </LinearLayout>
+
+
+    </ScrollView>

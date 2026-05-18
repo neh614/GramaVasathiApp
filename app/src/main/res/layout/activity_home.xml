@@ -72,6 +72,15 @@
         android:layout_marginTop="15dp"/>
 
     <Button
+        android:id="@+id/culturalBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="🌾 CULTURAL GUIDE"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="#795548"
+        android:textColor="#FFFFFF"/>
+
+    <Button
         android:id="@+id/chatBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -106,8 +115,6 @@
         android:textColor="#FFFFFF"
         android:backgroundTint="#8D6E63"
         android:layout_marginTop="15dp"/>
-
-
 
 
 </LinearLayout>
