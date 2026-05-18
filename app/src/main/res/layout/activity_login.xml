@@ -39,7 +39,7 @@
         android:id="@+id/loginInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Gmail or Phone Number"/>
+        android:hint="Enter Gmail"/>
 
     <EditText
         android:id="@+id/passwordInput"

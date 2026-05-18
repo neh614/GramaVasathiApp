@@ -7,6 +7,7 @@ import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
+import android.widget.Toast
 
 class FarmStayActivity : AppCompatActivity() {
 
@@ -41,6 +42,15 @@ class FarmStayActivity : AppCompatActivity() {
         )
 
         farmListView.adapter = adapter
+
+        farmListView.setOnItemClickListener { _, _, position, _ ->
+
+            Toast.makeText(
+                this,
+                "${farmStays[position]} selected",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
 
         searchEdit.addTextChangedListener(object : TextWatcher {
 

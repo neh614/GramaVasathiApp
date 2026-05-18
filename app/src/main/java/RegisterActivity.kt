@@ -26,8 +26,6 @@ class RegisterActivity : AppCompatActivity() {
         val nameEdit =
             findViewById<EditText>(R.id.nameEdit)
 
-        val phoneEdit =
-            findViewById<EditText>(R.id.phoneEdit)
 
         val emailEdit =
             findViewById<EditText>(R.id.emailEdit)
@@ -44,22 +42,11 @@ class RegisterActivity : AppCompatActivity() {
         registerBtn.setOnClickListener {
 
             val name = nameEdit.text.toString()
-            val phone = phoneEdit.text.toString()
+
             val email = emailEdit.text.toString()
             val password = passwordEdit.text.toString()
             val confirmPassword =
                 confirmPasswordEdit.text.toString()
-
-            // Phone validation
-            if (phone.length != 10) {
-
-                Toast.makeText(
-                    this,
-                    "Phone number must be 10 digits",
-                    Toast.LENGTH_SHORT
-                ).show()
-
-            }
 
             // Gmail validation
             else if (!email.endsWith("@gmail.com")) {
